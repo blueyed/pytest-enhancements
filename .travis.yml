@@ -1,0 +1,32 @@
+language: python
+dist: xenial
+cache: false
+
+jobs:
+  include:
+    - name: Default pytest, with QA
+      python: 3.7
+      env:
+        - TOX_ENV=py27,py37,qa
+        - _TOX_PYTEST_DEP=pytest
+
+    - stage: deploy
+      python: '3.7'
+      install: skip
+      script: skip
+      deploy:
+        provider: pypi
+        user: __token__
+        distributions: sdist bdist_wheel
+        skip_upload_docs: true
+        password:
+          - secure: "r+Fe86dNXGjOOYhJ0a71T9rxo0ipeEGDSmpAareJj5tt0exE6ffxMD2yScCrf7gBFqs46DAe2S40xQjBWp1G3R1Kj3d/0L/q879mQ4G0g3d81WgJz37iW1st2fSBAPUyLbRQIHDwbqs6baflLj56ea/sT0rKs4chVLb97c5BDUJQhcXOXx5xkNUGqVZpKi+1Ay+tM0fWAfx4Yl1eMMUOgVsVPWYweh/BA29SlU9s/EqO0u4/A+1h1uSt5dLgHZaUTcKvHlEu3VjVcX+qvu6LxT5zpaoeClOajVT7XIgpgbfkGjXDGEbrM7pRq1WkXhfBpYI5GFS8R5jx/5JzQcOBY8VqwWPKTef+4qPGdgC4VdZjVzA1jfOLYU8/bakUnDfAPGh6vSGmDuxv4JO7Dx7jo9HIWf9HmZs1qL61kLuibltJCxln6clHFreIPh6gFKyak+fpkBXxUs3Q4Rxoi7Vlu7eRYzctVolB7AVkoRMChmTEPgoPxBP+QVxS42OM7I/PTBV7dnOzgSrormiZ1oZ2/83KZvxnOcLexUVSkbDV7eyhJgKpjlHasUEQKqvZ2rdn19wWqjjYs4iz5U5DZ/41BZfj6v+YS5Skt9CnJktM5IPFIx+24RhDR9tRhGAzqPJsN3PYaKFlAFrKDCp7XoHcppHENUGnbV5YWfqQWVfwu0k="
+        on:
+          tags: true
+          repo: blueyed/pytest-enhancements
+
+install:
+  - pip install tox
+
+script:
+  - tox
