@@ -3,6 +3,8 @@
 Enhancements to pytest that were rejected upstream.
 Might involve monkey-patching pytest directly.. :/
 
+See also [my pytest branch with more enhancements](https://github.com/blueyed/pytest/).
+
 ## Features
 
 - Supports passing dictionaries to [@pytest.mark.parametrize](https://docs.pytest.org/en/latest/reference.html#pytest-mark-parametrize-ref):
