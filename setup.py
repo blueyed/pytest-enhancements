@@ -29,5 +29,5 @@ setup(
         "Topic :: Utilities",
     ],
     entry_points={"pytest11": ["pytest-enhancements = pytest_enhancements"]},
-    extra_requires={"testing": ["pytest"]},
+    extras_require={"testing": ["pytest"]},
 )
