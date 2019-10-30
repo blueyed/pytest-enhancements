@@ -7,7 +7,8 @@ See also [my pytest branch with more enhancements](https://github.com/blueyed/py
 
 ## Features
 
-- Supports passing dictionaries to [@pytest.mark.parametrize](https://docs.pytest.org/en/latest/reference.html#pytest-mark-parametrize-ref):
+- Supports passing dictionaries to
+  [@pytest.mark.parametrize](https://docs.pytest.org/en/latest/reference.html#pytest-mark-parametrize-ref):
 
   ```python
   @pytest.mark.parametrize('arg1,arg2,expected_id', {
